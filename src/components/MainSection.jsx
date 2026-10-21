@@ -1,8 +1,11 @@
 import "../css/main-section.css";
+import React from "react";
 
 export default function MainSection() {
-  const ingredients = ["tomato", "coriander", "turmeric"];
-  const ingredientList = ingredients.map((item, index) => (
+  var ingredientsList = ["tomato", "coriander", "turmeric"];
+  let [isIngredients, setIsIngredients] = React.useState(ingredientsList);
+
+  const ingredientListHtml = isIngredients.map((item, index) => (
     <li key={index}>{item}</li>
   ));
 
@@ -11,19 +14,27 @@ export default function MainSection() {
   }
 
   function handleSubmit(event) {
-    console.log("submitted data");
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const ingredientsi = formData.get("ingredient");
+    console.log(ingredientsi);
+    setIsIngredients((prev) => [...prev, ingredientsi]);
   }
   return (
     <div className="main-section">
       {/* <button onClick={handleClick}>Enter the Ingredients</button> */}
 
       <form onSubmit={handleSubmit}>
-        <input type="text-box" tter="e.g tomato" />
+        <input
+          name="ingredient"
+          type="text-box"
+          placeholder="e.g tomato
+        "
+        />
         <button>Enter the Ingredients</button>
       </form>
 
-      <ul>{ingredientList}</ul>
+      <ul>{ingredientListHtml}</ul>
     </div>
   );
 }
