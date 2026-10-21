@@ -1,0 +1,11 @@
+img {
+  width: 40px;
+}
+.main-section-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  background-color: beige;
+  border-color: rgb(255, 0, 51);
+}
