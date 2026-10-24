@@ -5,11 +5,13 @@ import App from "./App.jsx";
 import MainSection from "./components/MainSection.jsx";
 import Header from "./components/Header.jsx";
 import Contacter from "./components/Contacter.jsx";
+import FormNew from "./components/FormNew.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Header />
+    {/* <Header />
     <MainSection />
-    <Contacter />
+    <Contacter /> */}
+    <FormNew />
   </StrictMode>,
 );
