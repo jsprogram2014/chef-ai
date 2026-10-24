@@ -9,9 +9,9 @@ import FormNew from "./components/FormNew.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* <Header />
+    <Header />
     <MainSection />
-    <Contacter /> */}
+    <Contacter />
     <FormNew />
   </StrictMode>,
 );

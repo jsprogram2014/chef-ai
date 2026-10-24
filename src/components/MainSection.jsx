@@ -10,25 +10,18 @@ export default function MainSection() {
     <li key={index}>{item}</li>
   ));
 
-  function handleClick() {
-    console.log("whats good my ni");
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const ingredientsi = formData.get("ingredient");
-    console.log(ingredientsi);
-    setIsIngredients((prev) => [...prev, ingredientsi]);
+  function addIngredient(formData) {
+    setIsIngredients((prev) => [...prev, formData.get("ingredient")]);
   }
   return (
     <div className="main-section">
       {/* <button onClick={handleClick}>Enter the Ingredients</button> */}
 
-      <form onSubmit={handleSubmit}>
+      <form action={addIngredient}>
         <input
           name="ingredient"
           type="text-box"
+          defaultValue="tomato"
           placeholder="e.g tomato
         "
         />
