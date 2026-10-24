@@ -1,5 +1,6 @@
 import "../css/main-section.css";
 import React from "react";
+import reactsvg from "../assets/react.svg";
 
 export default function MainSection() {
   var ingredientsList = ["tomato", "coriander", "turmeric"];
@@ -31,7 +32,10 @@ export default function MainSection() {
           placeholder="e.g tomato
         "
         />
-        <button>Enter the Ingredients</button>
+        {/* <button>Enter the Ingredients</button> */}
+        <button aria-label="messi">
+          <img src={reactsvg}></img>
+        </button>
       </form>
 
       <ul>{ingredientListHtml}</ul>
