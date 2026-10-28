@@ -9,6 +9,10 @@ export default function App() {
     // setData(() => formData.get("checker1"));
     console.log(formData.getAll("checker1"));
     console.log(formData.getAll("optionse"));
+    console.log(Object.fromEntries(formData));
+    const data = Object.fromEntries(formData);
+    const allData = { ...data, checker1: formData.getAll("checker1") };
+    console.log(allData);
   }
 
   return (
@@ -73,7 +77,11 @@ export default function App() {
         </fieldset>
 
         <label htmlFor="optionse"></label>
-        <select id="optionse" name="optionse" defaultValue="Orange">
+        <select id="optionse" name="optionse" defaultValue="Orange" required>
+          <option value="" disabled>
+            --Choose a Color--
+          </option>
+
           <option value="Red">Red </option>
           <option value="Orange">Orange </option>
 
