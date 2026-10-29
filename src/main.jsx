@@ -7,11 +7,13 @@ import Header from "./components/Header.jsx";
 import Contacter from "./components/Contacter.jsx";
 import Random from "./components/Random.jsx";
 import Favourite from "./components/Favourite.jsx";
+import ButtonColors from "./components/ButtonColors.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Header />
+    {/* <Header />
 
-    <Ingredients />
+    <Ingredients /> */}
+    <ButtonColors />
   </StrictMode>,
 );
