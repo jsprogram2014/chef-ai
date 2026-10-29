@@ -4,10 +4,12 @@ import reactsvg from "../assets/react.svg";
 import Recipes from "../other-assets/recipes.md?raw";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import Favourite from "./Favourite";
 
 export default function MainSection() {
   let [isIngredients, setIsIngredients] = React.useState([]);
   let [recipeShown, setRecipeShown] = React.useState(false);
+  let [isFavorite, setIsFavourite] = React.useState(false);
 
   const ingredientListHtml = isIngredients.map((item, index) => (
     <li key={index}>{item}</li>
@@ -15,15 +17,20 @@ export default function MainSection() {
 
   function addIngredient(formData) {
     setIsIngredients((prev) => [...prev, formData.get("ingredient")]);
+    toggleFavorite();
   }
 
   function recipeRecieve() {
     setRecipeShown(!recipeShown);
   }
+
+  function toggleFavorite() {
+    setIsFavourite(!isFavorite);
+  }
+
   return (
     <div className="main-section">
-      {/* <button onClick={handleClick}>Enter the Ingredients</button> */}
-
+      <Favourite isFilled={isFavorite} onClick={toggleFavorite} />
       <form action={addIngredient}>
         <input
           name="ingredient"

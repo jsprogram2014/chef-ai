@@ -6,13 +6,12 @@ import Ingredients from "./components/Ingredients.jsx";
 import Header from "./components/Header.jsx";
 import Contacter from "./components/Contacter.jsx";
 import Random from "./components/Random.jsx";
+import Favourite from "./components/Favourite.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Header />
-    <Ingredients />
-    {/* <Contacter />
 
-    <Random /> */}
+    <Ingredients />
   </StrictMode>,
 );
