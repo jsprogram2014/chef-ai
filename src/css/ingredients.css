@@ -49,12 +49,13 @@
 .main-section form button {
   display: grid;
   place-items: center;
-  width: 52px;
-  height: 52px;
+  width: fit-content;
+  height: "60px";
   padding: 0;
   border: none;
   border-radius: 10px;
   background: #20232a;
+  color: white;
   cursor: pointer;
   transition:
     transform 0.15s,

@@ -4,16 +4,14 @@ import reactsvg from "../assets/react.svg";
 import Recipes from "../other-assets/recipes.md?raw";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import Favourite from "./Favourite";
+import Favourite from "../components-non/Favourite";
+import GetARecipeButton from "./GetARecipebutton";
+import IngredientsList from "./IngredientsList";
 
 export default function MainSection() {
   let [isIngredients, setIsIngredients] = React.useState([]);
   let [recipeShown, setRecipeShown] = React.useState(false);
   let [isFavorite, setIsFavourite] = React.useState(false);
-
-  const ingredientListHtml = isIngredients.map((item, index) => (
-    <li key={index}>{item}</li>
-  ));
 
   function addIngredient(formData) {
     setIsIngredients((prev) => [...prev, formData.get("ingredient")]);
@@ -39,24 +37,13 @@ export default function MainSection() {
           placeholder="e.g tomato
         "
         />
-        {/* <button>Enter the Ingredients</button> */}
-        <button aria-label="messi">
-          <img src={reactsvg}></img>
-        </button>
+        <button>+ Enter the Ingredients</button>
       </form>
 
-      <ul>{ingredientListHtml}</ul>
+      <IngredientsList listOfIn={isIngredients} />
 
       {isIngredients.length > 3 && (
-        <section className="get-recipe-container">
-          <div>
-            <h3>Ready for a recipe?</h3>
-            <p>Generate a recipe from your list of ingredients.</p>
-          </div>
-          <button onClick={recipeRecieve}>
-            {recipeShown ? "Remove the Recipe" : "Get a recipe"}
-          </button>
-        </section>
+        <GetARecipeButton recipeRe={recipeRecieve} recipeSh={recipeShown} />
       )}
 
       {recipeShown && (

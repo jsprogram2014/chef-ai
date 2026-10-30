@@ -1,11 +1,13 @@
-img {
+.header-logo {
   width: 40px;
 }
+
 .main-section-header {
   display: flex;
-  flex-direction: row;
   justify-content: center;
+  align-items: center;
   gap: 10px;
+  padding: 12px 20px;
   background-color: beige;
-  border-color: rgb(255, 0, 51);
+  border: 2px solid rgb(255, 0, 51);
 }

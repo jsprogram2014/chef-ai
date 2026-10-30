@@ -19,13 +19,9 @@ export default function ButtonColors() {
   ));
 
   function handleClick(id) {
-    setPads((prev) => {
-      return prev.map((item) => {
-        if (item.id == id) {
-          return { ...item, on: !item.on };
-        } else return { ...item };
-      });
-    });
+    setPads((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, on: !item.on } : item)),
+    );
   }
 
   function turnAllOff() {
