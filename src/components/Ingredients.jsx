@@ -7,18 +7,28 @@ import rehypeRaw from "rehype-raw";
 import Favourite from "../components-non/Favourite";
 import GetARecipeButton from "./GetARecipebutton";
 import IngredientsList from "./IngredientsList";
+import { getRecipeFromChefClaude } from "../ai/ai";
 
-export default function MainSection() {
-  let [isIngredients, setIsIngredients] = React.useState([]);
+export default function Ingredients() {
+  let [isIngredients, setIsIngredients] = React.useState([
+    "tomato",
+    "basil",
+    "rice",
+    "coconut",
+  ]);
   let [recipeShown, setRecipeShown] = React.useState(false);
   let [isFavorite, setIsFavourite] = React.useState(false);
-
+  let [resultClaude, setResultClaude] = React.useState("");
   function addIngredient(formData) {
     setIsIngredients((prev) => [...prev, formData.get("ingredient")]);
     toggleFavorite();
   }
 
-  function recipeRecieve() {
+  async function recipeRecieve() {
+    if (!recipeShown) {
+      const text = await getRecipeFromChefClaude(isIngredients);
+      setResultClaude(text);
+    }
     setRecipeShown(!recipeShown);
   }
 
@@ -35,7 +45,7 @@ export default function MainSection() {
           type="text-box"
           defaultValue="tomato"
           placeholder="e.g tomato
-        "
+          "
         />
         <button>+ Enter the Ingredients</button>
       </form>
@@ -46,9 +56,10 @@ export default function MainSection() {
         <GetARecipeButton recipeRe={recipeRecieve} recipeSh={recipeShown} />
       )}
 
-      {recipeShown && (
-        <ReactMarkdown rehypePlugins={[rehypeRaw]}>{Recipes}</ReactMarkdown>
-      )}
+      <>{recipeShown && <ReactMarkdown>{resultClaude}</ReactMarkdown>}</>
+      {/* {recipeShown && (
+          <ReactMarkdown rehypePlugins={[rehypeRaw]}>{Recipes}</ReactMarkdown>
+        )} */}
     </div>
   );
 }
