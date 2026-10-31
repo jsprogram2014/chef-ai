@@ -1,13 +1,36 @@
-.header-logo {
-  width: 40px;
-}
-
+/* ============ Header ============ */
 .main-section-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
-  background-color: beige;
-  border: 2px solid rgb(255, 0, 51);
+  gap: 12px;
+  padding: 14px 24px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--line, #ece4d9);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+.header-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  box-shadow: 0 6px 16px -6px rgba(249, 115, 22, 0.7);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.main-section-header:hover .header-logo {
+  transform: rotate(-12deg) scale(1.06);
+}
+
+.main-section-header h4 {
+  margin: 0;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--ink, #1f1a17);
 }

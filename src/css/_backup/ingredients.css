@@ -1,0 +1,187 @@
+/* main-section.css */
+
+.main-section {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #1f2937;
+}
+
+/* ---------- Form ---------- */
+.main-section form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.main-section input {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
+  background: #f9fafb;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.main-section input::placeholder {
+  color: #9ca3af;
+}
+
+.main-section input:focus {
+  border-color: #61dafb;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(97, 218, 251, 0.25);
+}
+
+.main-section form button {
+  display: grid;
+  place-items: center;
+  width: fit-content;
+  height: "60px";
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: #20232a;
+  color: white;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    background 0.2s;
+}
+
+.main-section form button:hover {
+  background: #2d313a;
+  transform: translateY(-2px);
+}
+
+.main-section form button:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.main-section form button img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.6s ease;
+}
+
+.main-section form button:hover img {
+  transform: rotate(180deg);
+}
+
+/* ---------- List ---------- */
+.main-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.main-section li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: #f3f4f6;
+  border-radius: 10px;
+  font-size: 1rem;
+  text-transform: capitalize;
+  animation: slideIn 0.25s ease;
+}
+
+.main-section li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #61dafb;
+  flex-shrink: 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Get recipe ---------- */
+.get-recipe-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 2.75rem;
+  margin-top: 2rem;
+  background: #f0efeb;
+  border-radius: 8px;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.get-recipe-container h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #141413;
+}
+
+.get-recipe-container p {
+  margin: 1.25rem 0 0;
+  font-size: 0.9rem;
+  color: #6b6b6b;
+}
+
+.get-recipe-container button {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 0.6rem 1.7rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #fafaf8;
+  background: #d17557;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.get-recipe-container button:hover {
+  background: #bd6347;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 500px) {
+  .main-section {
+    margin: 1rem;
+    padding: 1.25rem;
+  }
+
+  .get-recipe-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+}
